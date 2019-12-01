@@ -1,12 +1,16 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { Provider } from "react-redux";
 import { CssBaseline } from "@material-ui/core";
 
+import App from "./App";
+
+import store from "./redux/configureStore";
+
 ReactDOM.render(
-  <Fragment>
+  <Provider store={store}>
     <CssBaseline />
     <App />
-  </Fragment>,
+  </Provider>,
   document.getElementById("root")
 );
