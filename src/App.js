@@ -16,16 +16,16 @@ function App() {
         alignItems="center"
         style={{ width: '95%', margin: '20px auto' }}
       >
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <ProductListing product={products[0]} />
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <ProductListing product={products[1]} />
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <ProductListing product={products[0]} />
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <ProductListing product={products[1]} />
         </Grid>
       </Grid>
