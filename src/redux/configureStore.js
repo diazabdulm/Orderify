@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware, combineReducers } from "redux";
+import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 
 const middleware = [...getDefaultMiddleware()];
