@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { CssBaseline } from "@material-ui/core";
 import App from "./App";
-
 import store from "./redux/configureStore";
+import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
   <Provider store={store}>

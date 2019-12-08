@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -18,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     },
     right: {
         marginLeft: 'auto',
-        
+
     },
     cart: {
         marginLeft: 'auto',
@@ -26,9 +27,8 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function ProductListing({ product }) {
+const ProductListing = ({ product, addToCart }) => {
     const classes = useStyles();
-
     return (
         <Card className={classes.card}>
             <CardMedia
@@ -38,14 +38,14 @@ export default function ProductListing({ product }) {
             />
             <CardContent>
                 <Grid container spacing={2}>
-                <Grid item xs={12} container direction="column" >
-                        <Fab color="primary" id="test1" aria-label="add" className={classes.cart} >
-                            <ShoppingCartIcon  />
+                    <Grid item xs={12} container direction="column" >
+                        <Fab color="primary" id="test1" aria-label="add" className={classes.cart} onClick={addToCart}>
+                            <ShoppingCartIcon />
                         </Fab>
                     </Grid>
 
                     <Grid item xs={12} container direction="column">
-                        <Typography variant="h6" color="default" component="p" noWrap>
+                        <Typography variant="h6" component="p" noWrap>
                             {product.name}
                         </Typography>
                     </Grid>
@@ -68,3 +68,11 @@ export default function ProductListing({ product }) {
         </Card>
     );
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: () => { dispatch({ type: 'ADD_TO_CART' }) }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductListing)
